@@ -13,6 +13,7 @@ replaces setups that scrape `cumulative-production/daily`, whose days are dated 
   daily totals, one row at 23:00 local on the correct day, so the running total stays continuous.
 - Every hour the last 3 days are re-read and rewritten, because Sunrun backfills late data.
 - Sensors: today's production (kWh) and the timestamp of the latest data.
+- Use the `sunrun:…` statistic in the Energy dashboard, not the today sensor.
 
 ## Install
 
@@ -37,11 +38,11 @@ stored, never a password.
 
 1. Add the integration and wait for the first run to finish. The history is written in the
    background and can take a few minutes.
-2. Developer tools > Statistics: confirm `sunrun:<site>_solar_production` exists and its recent
+2. Tools > Statistics: confirm `sunrun:<site>_solar_production` exists and its recent
    days match the Sunrun app.
 3. Settings > Dashboards > Energy > Solar panels: replace the old source with
    `sunrun:<site>_solar_production`.
-4. Remove the old scraped sensor, then clear its statistics under Developer tools > Statistics
+4. Remove the old scraped sensor, then clear its statistics under Tools > Statistics
    (the fix option next to the entity).
 
 ## Notes

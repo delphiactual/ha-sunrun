@@ -10,7 +10,6 @@ from homeassistant.components.sensor import (
     SensorDeviceClass,
     SensorEntity,
     SensorEntityDescription,
-    SensorStateClass,
 )
 from homeassistant.const import UnitOfEnergy
 from homeassistant.core import HomeAssistant
@@ -34,8 +33,8 @@ SENSORS = (
         translation_key="energy_today",
         device_class=SensorDeviceClass.ENERGY,
         native_unit_of_measurement=UnitOfEnergy.KILO_WATT_HOUR,
-        # Resets at local midnight; total_increasing treats the drop as a new cycle.
-        state_class=SensorStateClass.TOTAL_INCREASING,
+        # No state class: Sunrun revises recent slots downward, which would be read as a reset
+        # and double-count. The external statistic is the one for the Energy dashboard.
         suggested_display_precision=2,
         value_fn=lambda d: d.today_kwh,
     ),
