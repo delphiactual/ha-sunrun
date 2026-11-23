@@ -1,0 +1,18 @@
+[project]
+name = "ha-sunrun"
+version = "0.1.0"
+requires-python = ">=3.12"
+
+[project.optional-dependencies]
+# tzdata: Windows has no system time zone database, which the DST tests need.
+dev = ["pytest", "ruff", "tzdata", "aiohttp"]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,41 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect to Sunrun",
+        "description": "Paste the access token from your signed-in my.sunrun.com session. Your site is looked up automatically.",
+        "data": { "token": "Access token" }
+      },
+      "site": {
+        "title": "Choose a site",
+        "data": { "site_id": "Site" }
+      },
+      "name": {
+        "title": "Name this system",
+        "description": "Used for the device and the statistic name.",
+        "data": { "name": "Name" }
+      },
+      "reauth_confirm": {
+        "title": "Sunrun token expired",
+        "description": "Paste a fresh access token from my.sunrun.com.",
+        "data": { "token": "Access token" }
+      }
+    },
+    "error": {
+      "invalid_auth": "Sunrun rejected this token. It may have expired.",
+      "cannot_connect": "Could not reach Sunrun.",
+      "no_sites": "No solar sites were found on this account.",
+      "wrong_account": "This token belongs to a different Sunrun site."
+    },
+    "abort": {
+      "already_configured": "This site is already configured.",
+      "reauth_successful": "Token updated."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "energy_today": { "name": "Solar energy today" },
+      "last_data": { "name": "Last data" }
+    }
+  }
+}
