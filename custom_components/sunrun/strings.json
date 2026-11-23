@@ -2,9 +2,14 @@
   "config": {
     "step": {
       "user": {
-        "title": "Connect to Sunrun",
-        "description": "Paste the access token from your signed-in my.sunrun.com session. Your site is looked up automatically.",
-        "data": { "token": "Access token" }
+        "title": "Sign in to Sunrun",
+        "description": "Enter the mobile number on your Sunrun account. Sunrun will text you a 6-digit code.",
+        "data": { "phone": "Mobile number" }
+      },
+      "code": {
+        "title": "Enter the code",
+        "description": "Enter the code Sunrun texted you. Tick the box and submit to send a new code instead.",
+        "data": { "code": "Code", "resend": "Send a new code" }
       },
       "site": {
         "title": "Choose a site",
@@ -14,22 +19,19 @@
         "title": "Name this system",
         "description": "Used for the device and the statistic name.",
         "data": { "name": "Name" }
-      },
-      "reauth_confirm": {
-        "title": "Sunrun token expired",
-        "description": "Paste a fresh access token from my.sunrun.com.",
-        "data": { "token": "Access token" }
       }
     },
     "error": {
-      "invalid_auth": "Sunrun rejected this token. It may have expired.",
-      "cannot_connect": "Could not reach Sunrun.",
-      "no_sites": "No solar sites were found on this account.",
-      "wrong_account": "This token belongs to a different Sunrun site."
+      "invalid_phone": "Enter a valid mobile number.",
+      "login_refused": "Sunrun did not accept this number. Check it and try again later.",
+      "invalid_code": "That code is wrong or has expired. Tick \"Send a new code\" to get another.",
+      "cannot_connect": "Could not reach Sunrun."
     },
     "abort": {
       "already_configured": "This site is already configured.",
-      "reauth_successful": "Token updated."
+      "no_sites": "No solar sites were found on this account.",
+      "wrong_account": "This sign-in belongs to a different Sunrun site.",
+      "reauth_successful": "Signed in again."
     }
   },
   "entity": {

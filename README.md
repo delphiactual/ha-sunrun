@@ -21,16 +21,17 @@ replaces setups that scrape `cumulative-production/daily`, whose days are dated 
 2. Restart Home Assistant.
 3. Settings > Devices & services > Add integration > **Sunrun**.
 
-### Getting the token
+### Signing in
 
-Sign in at <https://my.sunrun.com>, open the browser developer tools, go to Application (Chrome)
-or Storage (Firefox) > Local Storage > `https://my.sunrun.com`, and copy the value of
-`AUTH_TOKEN`. Paste it into the setup form. Your site is looked up from the token, and if the
-account has more than one system you pick one.
+Enter the mobile number on your Sunrun account. Sunrun texts you a 6-digit code, the same
+sign-in as my.sunrun.com. Enter it and your site is found automatically (you pick one if the
+account has several). If the code is wrong or expired, tick "Send a new code" and submit.
 
-The token's lifetime is not known and the integration cannot refresh it yet. If Sunrun rejects
-it, Home Assistant shows a re-authentication prompt: paste a fresh token and nothing else
-changes.
+The sign-in gives Home Assistant a short-lived access token (24 hours as declared by Sunrun)
+and a long-lived refresh token. The integration refreshes when Sunrun rejects the access
+token. If Sunrun stops accepting the tokens, Home Assistant shows a re-authentication prompt and
+texts a new code to the stored number. Nothing else changes. Only tokens and your number are
+stored, never a password.
 
 ## Switching over from a scraped sensor
 
